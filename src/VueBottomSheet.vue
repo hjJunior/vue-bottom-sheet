@@ -68,7 +68,7 @@ const props = withDefaults(defineProps<IProps>(), {
 /**
  * Bottom sheet emit interface
  */
-const emit = defineEmits(['opened', 'closed', 'dragging-up', 'dragging-down'])
+const emit = defineEmits(['opened', 'closed', 'dragging-up', 'dragging-down', 'change', 'will-open', 'will-close'])
 
 /**
  * Show or hide sheet
@@ -209,6 +209,8 @@ const dragHandler = (event: IEvent, type: 'area' | 'main') => {
         translateValue.value = pixelToVh(event.deltaY)
       }
 
+      emit('change',  { progress: translateValue.value })
+  
       if (event.type === 'panup') {
         emit('dragging-up')
       }
@@ -268,6 +270,7 @@ nextTick(() => {
  * Open bottom sheet method
  */
 const open = () => {
+  emit('will-open');
   translateValue.value = 0
   document.documentElement.style.overflowY = 'hidden'
   document.documentElement.style.overscrollBehavior = 'none'
@@ -279,6 +282,7 @@ const open = () => {
  * Close bottom sheet method
  */
 const close = async () => {
+  emit('will-close');
   showSheet.value = false
   translateValue.value = 100
   setTimeout(() => {
