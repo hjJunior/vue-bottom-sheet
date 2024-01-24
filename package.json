@@ -8,8 +8,7 @@
     "build-demo": "rimraf dist &&  vite build --config vite-demo.config.ts",
     "deploy": "rimraf dist && vite build && npm publish --access=public",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "prettier --write src/",
-    "postinstall": "yarn build-lib"
+    "format": "prettier --write src/"
   },
   "dependencies": {
     "hammerjs": "^2.0.8"
