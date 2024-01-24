@@ -9,7 +9,8 @@
     "deploy": "rimraf dist && vite build && npm publish --access=public",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "prepare": "npm run build-lib"
+    "prepare": "npm run build-lib",
+    "install": "npm run build-lib"
   },
   "dependencies": {
     "hammerjs": "^2.0.8"
