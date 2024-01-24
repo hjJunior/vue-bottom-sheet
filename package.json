@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
     "prepare": "npm run build-lib",
-    "install": "npm run build-lib"
+    "install": "yarn && yarn build-lib"
   },
   "dependencies": {
     "hammerjs": "^2.0.8"
